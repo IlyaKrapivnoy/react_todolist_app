@@ -1,23 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import { Container, Paper } from '@material-ui/core';
+import Header from './components/Header'
+import Tasks from './components/Tasks'
+
 
 function App() {
+  const [tasks, setTasks] = useState([
+    {
+        id: 1,
+        text: 'Meet Mike',
+        day: 'Sep 7th at 3:30',
+        reminder: false,
+    },
+    {
+        id: 2,
+        text: 'Play the guitar',
+        day: 'Sep 8th at 1:20',
+        reminder: false,
+    },
+    {
+        id: 3,
+        text: 'Code a website',
+        day: 'Sep 11th at 7:00',
+        reminder: true,
+    },
+    {
+      id: 4,
+      text: 'Go to the gym',
+      day: 'Sep 12th at 9:30',
+      reminder: true,
+  },
+])
+
+  const onClick = () => {
+    console.log('Click')
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div style={{ paddingTop: 50 }}></div>
+      <Container maxWidth="sm">
+        <Paper elevation={3}>
+          <Header title='To-Do List' buttonName='Add' onClick={onClick} />
+          <Tasks tasks={tasks} />
+        </Paper> 
+      </Container>
     </div>
   );
 }
