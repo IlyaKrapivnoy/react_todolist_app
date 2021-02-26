@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Container, Paper } from '@material-ui/core';
 import Header from './components/Header'
 import Tasks from './components/Tasks'
+import NoTask from './components/NoTask'
 
 
 function App() {
@@ -32,16 +33,20 @@ function App() {
   },
 ])
 
+const deleteTask = id => {
+  setTasks(tasks.filter((task) => task.id !== id))
+}
+
   const onClick = () => {
     console.log('Click')
   }
   return (
     <div className="App">
       <div style={{ paddingTop: 50 }}></div>
-      <Container maxWidth="sm">
+      <Container maxWidth="sm" >
         <Paper elevation={3}>
           <Header title='To-Do List' buttonName='Add' onClick={onClick} />
-          <Tasks tasks={tasks} />
+          {tasks.length > 0 ? (<Tasks tasks={tasks} onDelete={deleteTask} />) : (<NoTask />)}
         </Paper> 
       </Container>
     </div>
