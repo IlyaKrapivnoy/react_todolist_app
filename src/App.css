@@ -36,6 +36,9 @@
     transform: rotate(360deg);
   }
 }
-.root {
-    background: red;
+.task {
+  border-left: 50px solid pink;
+}
+.reminder {
+  border-left: 50px solid lightgreen;
 }
