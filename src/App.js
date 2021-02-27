@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Container, Paper } from '@material-ui/core';
 import Header from './components/Header'
 import Tasks from './components/Tasks'
@@ -40,6 +40,16 @@ function App() {
   },
 ])
 
+// to localStorage
+// useEffect(() => {
+//   const raw = localStorage.getItem('tasks')
+//   setTasks(JSON.parse(raw))
+// })
+
+// useEffect(() => {
+//   localStorage.setItem('tasks', JSON.stringify(tasks))
+// }, [tasks])
+
 // Add Task
 const addTask = (task) => {
   const id = Math.floor(Math.random() * 10000) + 1
@@ -65,9 +75,9 @@ const toggleReminder = id => {
       <Container maxWidth="sm" >
         <Paper elevation={3}>
           <Header 
-          title='To-Do List' 
-          buttonName='Add' 
+          title='To-Do List'  
           onAdd={() => setShowAddTask(!showAddTask)}
+          showAdd={showAddTask}
           />
           {showAddTask && <AddTask onAdd={addTask} />}
           {tasks.length > 0 ? 
