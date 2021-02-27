@@ -7,7 +7,8 @@ const MyButton = ({buttonName, onClick}) => {
         <div>
             <Button 
             variant="contained" 
-            color="primary"
+            // color="primary"
+            style={{ background: "#23B684", color: "#fff", padding: '5px 30px' }}
             onClick={onClick}            
             >{buttonName}</Button>
         </div>
