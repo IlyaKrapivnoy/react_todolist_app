@@ -2,11 +2,11 @@ import React from 'react'
 import { Typography } from '@material-ui/core';
 import MyButton from './MyButton'
 
-const Header = ({ title, onClick }) => {
+const Header = ({ title, onAdd }) => {
     return (
         <div style={headerStyles} >
             <Typography variant="h4" gutterBottom>{title}</Typography>
-            <MyButton buttonName="Add" onClick={onClick} />
+            <MyButton buttonName="Add" onClick={onAdd} />
         </div>
     )
 }
