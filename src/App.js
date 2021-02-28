@@ -41,14 +41,14 @@ function App() {
 ])
 
 // to localStorage
-// useEffect(() => {
-//   const raw = localStorage.getItem('tasks')
-//   setTasks(JSON.parse(raw))
-// })
+useEffect(() => {
+  const raw = localStorage.getItem('tasks')
+  setTasks(JSON.parse(raw))
+}, [])
 
-// useEffect(() => {
-//   localStorage.setItem('tasks', JSON.stringify(tasks))
-// }, [tasks])
+useEffect(() => {
+  localStorage.setItem('tasks', JSON.stringify(tasks))
+}, [tasks])
 
 // Add Task
 const addTask = (task) => {
